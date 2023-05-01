@@ -1,0 +1,64 @@
+{
+  "name": "@zettelyay/web-server-shared",
+  "description": "Zettel: Shared by Web & Server",
+  "version": "2.0.0",
+  "files": [
+    "dist/**"
+  ],
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    ".l": "npm run lint-staged",
+    "lint-staged": "cross-env NODE_ENV=production lint-staged --verbose",
+    "prepublishOnly": "npm run build",
+    "build": "npm run check && npm run clean && npm run tsc",
+    "check": "check-peer-dependencies --runOnlyOnRootDependencies",
+    "clean": "rimraf dist",
+    "tsc": "tsc",
+    "updates.check": "ncu",
+    "updates.install": "rimraf package-lock.json && ncu --upgrade && npm install",
+    "preversion": "git-branch-is master",
+    "postversion": "git push --follow-tags",
+    "gource": "gource --seconds-per-day 0.35 --auto-skip-seconds 0.1 --file-idle-time 0 --max-file-lag 1",
+    "status": "sloc src/",
+    "test": "echo \"No test yet.\"",
+    "prepare": "husky install"
+  },
+  "peerDependencies": {
+    "@zettelyay/commons": "^2.0.0",
+    "@zettelyay/models": "^2.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "check-peer-dependencies": "^4.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "git-branch-is": "^4.0.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^13.1.0",
+    "npm-check-updates": "^11.8.3",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "sloc": "^0.2.1",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [
+    "zettel",
+    "web-server-shared"
+  ],
+  "author": {
+    "name": "Zettel",
+    "email": "zettel@zettel.ooo"
+  },
+  "contributors": [
+    "Hessamoddin A Shokravi <ahs502@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zettelyay/web-server-shared"
+  }
+}
