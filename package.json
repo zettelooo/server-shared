@@ -1,7 +1,7 @@
 {
   "name": "@zettelyay/web-server-shared",
   "description": "Zettel: Shared by Web & Server",
-  "version": "2.0.0",
+  "version": "0.0.0",
   "files": [
     "dist/**"
   ],
@@ -15,6 +15,7 @@
     "check": "check-peer-dependencies --runOnlyOnRootDependencies",
     "clean": "rimraf dist",
     "tsc": "tsc",
+    "updates.peers": "npm install @zettelyay/commons@latest @zettelyay/models@latest",
     "updates.check": "ncu",
     "updates.install": "rimraf package-lock.json && ncu --upgrade && npm install",
     "preversion": "git-branch-is master",
@@ -29,22 +30,22 @@
     "@zettelyay/models": "^2.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
     "check-peer-dependencies": "^4.2.0",
     "cross-env": "^7.0.3",
-    "eslint": "^7.31.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "git-branch-is": "^4.0.0",
-    "husky": "^7.0.1",
-    "lint-staged": "^13.1.0",
-    "npm-check-updates": "^11.8.3",
-    "prettier": "^2.3.2",
-    "rimraf": "^3.0.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "npm-check-updates": "^16.10.9",
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.0",
     "sloc": "^0.2.1",
-    "typescript": "^4.7.4"
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "zettel",
