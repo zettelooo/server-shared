@@ -3,7 +3,6 @@ export * from './web-socket-services'
 
 export * from './DecodedAccessToken'
 export * from './Developer'
-export * from './ExtensionHeader'
-export * from './ExtensionScope'
+export * from './ExtensionHeaderDocument'
 export * from './PagePreInstalledExtensions'
 export * from './UserDailyActivity'

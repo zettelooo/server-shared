@@ -1,13 +1,13 @@
 import { Id } from '@zettelyay/commons'
 import { Developer } from '../Developer'
-import { ExtensionHeader } from '../ExtensionHeader'
+import { ExtensionHeaderDocument } from '../ExtensionHeaderDocument'
 
 export namespace DeveloperServiceSignature {
   export namespace AdminGetPageData {
     export interface Request {}
     export interface Response {
       readonly developers: readonly Developer[]
-      readonly reviewingExtensionHeaders: readonly ExtensionHeader.Document[]
+      readonly reviewingExtensionHeaders: readonly ExtensionHeaderDocument[]
     }
   }
 
@@ -61,7 +61,7 @@ export namespace DeveloperServiceSignature {
     export interface Response {
       readonly signedInDeveloper: DisplayDeveloper
       readonly extensionAccessKeys: Developer.ExtensionAccessKeys
-      readonly extensionHeaders: readonly ExtensionHeader.Document[]
+      readonly extensionHeaders: readonly ExtensionHeaderDocument[]
     }
   }
 
@@ -73,7 +73,7 @@ export namespace DeveloperServiceSignature {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
-      readonly publicationStatus: ExtensionHeader.PublicationStatus
+      readonly publicationStatus: ExtensionHeaderDocument.PublicationStatus
     }
     export interface Response {}
   }

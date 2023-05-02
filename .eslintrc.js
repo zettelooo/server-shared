@@ -5,13 +5,7 @@ const productionWarn = process.env.NODE_ENV === 'production' ? 'warn' : 0
 module.exports = {
   extends:
     process.env.NODE_ENV === 'production'
-      ? [
-          'eslint:recommended',
-          'plugin:@typescript-eslint/recommended',
-          'airbnb-typescript/base',
-          'prettier',
-          'plugin:prettier/recommended',
-        ]
+      ? ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier', 'plugin:prettier/recommended']
       : ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   plugins: ['@typescript-eslint', 'prettier'],
   env: {
