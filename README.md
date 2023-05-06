@@ -47,16 +47,16 @@ $ npm version patch   # / minor / major / any other valid semantic version
 
 ## Misc
 
-Validate all official peer dependencies to Zettel packages:
+Validate all peer dependencies:
 
 ```bash
 $ npm run peers.validate
 ```
 
-Upgrade all official peer dependencies to Zettel packages:
+Upgrade all Zettel's official dependencies:
 
 ```bash
-$ npm run peers.upgrade
+$ npm run zettel.upgrade   # Alternatively:   $ npm run .u
 ```
 
 Check for all the updates available on the dependencies:
@@ -85,7 +85,6 @@ Summarize the size of the code base in lines of code:
 ```bash
 $ npm run status
 ```
-
 
 ------------------
 
