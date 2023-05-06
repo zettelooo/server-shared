@@ -1,7 +1,7 @@
 {
   "name": "@zettelyay/web-server-shared",
   "description": "Zettel: Shared by Web & Server",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "files": [
     "dist/**"
   ],
