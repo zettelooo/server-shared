@@ -1,5 +1,5 @@
-import { Id, ReadonlyRecord, Timestamp } from '@zettelyay/commons'
-import { MutableModel } from '@zettelyay/models'
+import { Id, ReadonlyRecord, Timestamp } from '@zettelooo/commons'
+import { MutableModel } from '@zettelooo/models'
 import { UserDailyActivity } from '../UserDailyActivity'
 
 export namespace AdminServiceSignature {

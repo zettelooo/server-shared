@@ -1,5 +1,5 @@
-import { Id } from '@zettelyay/commons'
-import { MutableModel } from '@zettelyay/models'
+import { Id } from '@zettelooo/commons'
+import { MutableModel } from '@zettelooo/models'
 
 export namespace CoreServiceSignature {
   export namespace UpsertAccount {

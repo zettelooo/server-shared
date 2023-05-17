@@ -1,4 +1,4 @@
-import { PartialReadonlyRecord } from '@zettelyay/commons'
+import { PartialReadonlyRecord } from '@zettelooo/commons'
 
 export interface UserDailyActivity {
   readonly userId: string

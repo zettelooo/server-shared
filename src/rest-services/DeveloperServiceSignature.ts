@@ -1,4 +1,4 @@
-import { Id } from '@zettelyay/commons'
+import { Id } from '@zettelooo/commons'
 import { Developer } from '../Developer'
 import { ExtensionHeaderDocument } from '../ExtensionHeaderDocument'
 

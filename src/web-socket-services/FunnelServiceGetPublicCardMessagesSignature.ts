@@ -1,5 +1,5 @@
-import { Id, Timestamp } from '@zettelyay/commons'
-import { MutableModel } from '@zettelyay/models'
+import { Id, Timestamp } from '@zettelooo/commons'
+import { MutableModel } from '@zettelooo/models'
 
 export namespace FunnelServiceGetPublicCardMessagesSignature {
   export type RequestMessage<T extends RequestMessage.Type = RequestMessage.Type> = {

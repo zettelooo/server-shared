@@ -1,4 +1,4 @@
-import { ExtensionHeader } from '@zettelyay/models'
+import { ExtensionHeader } from '@zettelooo/models'
 
 export interface ExtensionHeaderDocument extends ExtensionHeader {
   readonly publicationStatus: ExtensionHeaderDocument.PublicationStatus

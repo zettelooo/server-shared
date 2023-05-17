@@ -1,5 +1,5 @@
-import { Id } from '@zettelyay/commons'
-import { ExtensionHeader, ExtensionScope } from '@zettelyay/models'
+import { Id } from '@zettelooo/commons'
+import { ExtensionHeader, ExtensionScope } from '@zettelooo/models'
 
 export namespace ExtensionServiceSignature {
   export namespace GetHeadersByIds {

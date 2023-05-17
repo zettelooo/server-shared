@@ -1,5 +1,5 @@
-import { Timestamp, Id, PartialReadonlyRecord } from '@zettelyay/commons'
-import { MutableModel } from '@zettelyay/models'
+import { Timestamp, Id, PartialReadonlyRecord } from '@zettelooo/commons'
+import { MutableModel } from '@zettelooo/models'
 
 export namespace FunnelServiceGetMessagesSignature {
   export type RequestMessage<T extends RequestMessage.Type = RequestMessage.Type> = {

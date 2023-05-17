@@ -1,6 +1,6 @@
 // TODO: Temporary approach:
 
-import { ReadonlyRecord, Id } from '@zettelyay/commons'
+import { ReadonlyRecord, Id } from '@zettelooo/commons'
 
 const managedDataById: ReadonlyRecord<Id, any> = {
   // 'zettel.daily-focus': undefined,

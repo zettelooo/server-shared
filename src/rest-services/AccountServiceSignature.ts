@@ -1,5 +1,5 @@
-import { Id, PartialReadonlyRecord } from '@zettelyay/commons'
-import { MutableModel } from '@zettelyay/models'
+import { Id, PartialReadonlyRecord } from '@zettelooo/commons'
+import { MutableModel } from '@zettelooo/models'
 
 export namespace AccountServiceSignature {
   export namespace GoogleSignInGetAuthLink {

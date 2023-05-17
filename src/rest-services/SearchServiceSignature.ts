@@ -1,4 +1,4 @@
-import { Id } from '@zettelyay/commons'
+import { Id } from '@zettelooo/commons'
 
 export namespace SearchServiceSignature {
   export namespace OnUsers {
