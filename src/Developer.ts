@@ -15,4 +15,12 @@ export namespace Developer {
   export interface Display extends Base {
     readonly accessKeyNames: readonly string[]
   }
+
+  export function convertDocumentToDisplay(document: Document): Display {
+    const { password, accessKeysByName, ...others } = document
+    return {
+      ...others,
+      accessKeyNames: Object.keys(accessKeysByName),
+    }
+  }
 }

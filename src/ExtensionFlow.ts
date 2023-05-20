@@ -29,4 +29,12 @@ export namespace ExtensionFlow {
   export interface Header extends Omit<ExtensionHeader, 'id' | 'author' | 'name'> {
     readonly aiDescription: string
   }
+
+  export function convertDocumentToDisplay(document: Document): Display {
+    const { accessKeysByName, ...others } = document
+    return {
+      ...others,
+      accessKeyNames: Object.keys(accessKeysByName),
+    }
+  }
 }
