@@ -4,6 +4,7 @@ import { ExtensionHeader } from '@zettelooo/models'
 export namespace ExtensionFlow {
   interface Base {
     readonly id: Id
+    readonly authorId: Id
     readonly name: string
     readonly headers: PartialReadonlyRecord<ExtensionFlow.PublicationMode, ExtensionFlow.Header>
     readonly testerUserNames: readonly string[]
