@@ -133,11 +133,10 @@ export namespace DeveloperServiceSignature {
     export interface Response {}
   }
 
-  export namespace EditExtensionPublicAccessMode {
+  export namespace LimitedPublishExtension {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
-      readonly publicAccessMode: ExtensionFlow.PublicAccessMode
     }
     export interface Response {}
   }
