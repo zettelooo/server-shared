@@ -141,10 +141,11 @@ export namespace DeveloperServiceSignature {
     export interface Response {}
   }
 
-  export namespace SubmitExtensionForReview {
+  export namespace EditExtensionStagedToBePublished {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
+      readonly stagedToBePublished: boolean
     }
     export interface Response {}
   }

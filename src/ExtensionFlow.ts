@@ -8,6 +8,7 @@ export namespace ExtensionFlow {
     readonly headers: PartialReadonlyRecord<ExtensionFlow.PublicationMode, ExtensionFlow.Header>
     readonly testerUserNames: readonly string[]
     readonly targetUserNames: readonly string[]
+    readonly stagedToBePublished: boolean
   }
 
   export interface Document extends Base {
@@ -21,7 +22,6 @@ export namespace ExtensionFlow {
   export enum PublicationMode {
     Developing = 'DEVELOPING',
     LimitedPublished = 'LIMITED_PUBLISHED',
-    Reviewing = 'REVIEWING',
     Published = 'PUBLISHED',
   }
 
