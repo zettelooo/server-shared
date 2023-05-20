@@ -1,19 +1,20 @@
 import { Id } from '@zettelooo/commons'
+import { ExtensionHeader } from '@zettelooo/models'
 import { Developer } from '../Developer'
-import { ExtensionHeaderDocument } from '../ExtensionHeaderDocument'
+import { ExtensionFlow } from '../ExtensionFlow'
 
 export namespace DeveloperServiceSignature {
   export namespace AdminGetPageData {
     export interface Request {}
     export interface Response {
-      readonly developers: readonly Developer[]
-      readonly reviewingExtensionHeaders: readonly ExtensionHeaderDocument[]
+      readonly developers: readonly Developer.Display[]
+      readonly reviewingExtensionHeaders: readonly ExtensionHeader[]
     }
   }
 
   export namespace AdminAddDeveloper {
     export interface Request {
-      readonly newDeveloper: Pick<Developer, 'id' | 'password' | 'name' | 'email'>
+      readonly newDeveloper: Pick<Developer.Document, 'id' | 'password' | 'name' | 'email'>
     }
     export interface Response {}
   }
@@ -28,11 +29,7 @@ export namespace DeveloperServiceSignature {
   export namespace AdminEditDeveloper {
     export interface Request {
       readonly developerId: Id
-      readonly updates: {
-        readonly password?: string
-        readonly name?: string
-        readonly email?: string
-      }
+      readonly updates: Partial<Pick<Developer.Document, 'password' | 'name' | 'email'>>
     }
     export interface Response {}
   }
@@ -59,10 +56,27 @@ export namespace DeveloperServiceSignature {
       readonly developerId: Id
     }
     export interface Response {
-      readonly signedInDeveloper: DisplayDeveloper
-      readonly extensionAccessKeys: Developer.ExtensionAccessKeys
-      readonly extensionHeaders: readonly ExtensionHeaderDocument[]
+      readonly signedInDeveloper: Developer.Display
+      readonly extensionFlows: readonly ExtensionFlow.Display[]
     }
+  }
+
+  export namespace GrantAccessKey {
+    export interface Request {
+      readonly developerId: Id
+      readonly name: string
+    }
+    export interface Response {
+      readonly accessKey: string
+    }
+  }
+
+  export namespace RevokeAccessKey {
+    export interface Request {
+      readonly developerId: Id
+      readonly name: string
+    }
+    export interface Response {}
   }
 
   export namespace UploadExtension {
@@ -73,7 +87,7 @@ export namespace DeveloperServiceSignature {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
-      readonly publicationStatus: ExtensionHeaderDocument.PublicationStatus
+      readonly publicationMode?: ExtensionFlow.PublicationMode
     }
     export interface Response {}
   }
@@ -82,24 +96,48 @@ export namespace DeveloperServiceSignature {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
+      readonly name: string
     }
-    export interface Response {}
+    export interface Response {
+      readonly accessKey: string
+    }
   }
 
   export namespace RevokeExtensionAccessKey {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
+      readonly name: string
     }
     export interface Response {}
   }
 
-  export namespace ModifyExtensionAccessingUserName {
+  export namespace EditExtensionAiDescription {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
-      readonly userName: string
+      readonly publicationMode: ExtensionFlow.PublicationMode
+      readonly aiDescription: string
+    }
+    export interface Response {}
+  }
+
+  export namespace ModifyExtensionRelatedUserName {
+    export interface Request {
+      readonly developerId: Id
+      readonly extensionId: Id
+      readonly role: 'tester' | 'target'
       readonly action: 'add' | 'remove'
+      readonly userName: string
+    }
+    export interface Response {}
+  }
+
+  export namespace EditExtensionPublicAccessMode {
+    export interface Request {
+      readonly developerId: Id
+      readonly extensionId: Id
+      readonly publicAccessMode: ExtensionFlow.PublicAccessMode
     }
     export interface Response {}
   }
@@ -111,6 +149,4 @@ export namespace DeveloperServiceSignature {
     }
     export interface Response {}
   }
-
-  export type DisplayDeveloper = Pick<Developer, 'id' | 'name' | 'email'>
 }
