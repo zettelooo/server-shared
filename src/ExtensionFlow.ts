@@ -1,5 +1,6 @@
 import { Id, PartialReadonlyRecord, ReadonlyRecord } from '@zettelooo/commons'
 import { ExtensionHeader } from '@zettelooo/models'
+import { Developer } from './Developer'
 
 export namespace ExtensionFlow {
   interface Base {
@@ -35,6 +36,24 @@ export namespace ExtensionFlow {
     return {
       ...others,
       accessKeyNames: Object.keys(accessKeysByName),
+    }
+  }
+
+  export function convertFlowHeaderToHeader(
+    flow: Base,
+    header: Header,
+    developer: Developer.Document | Developer.Display
+  ): ExtensionHeader {
+    const { aiDescription, ...others } = header
+    return {
+      ...others,
+      id: flow.id,
+      author: {
+        id: flow.authorId,
+        name: developer.name,
+        email: developer.email,
+      },
+      name: flow.name,
     }
   }
 }
