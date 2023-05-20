@@ -1,3 +1,5 @@
+export * from './version'
+
 export * from './rest-services'
 export * from './web-socket-services'
 
