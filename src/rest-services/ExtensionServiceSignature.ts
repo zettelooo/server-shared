@@ -22,21 +22,4 @@ export namespace ExtensionServiceSignature {
       readonly headers: ExtensionHeader[]
     }
   }
-
-  export namespace SmartSearchHeaders {
-    export interface Request {
-      readonly accountId?: Id
-      readonly scope: ExtensionScope
-      readonly chatHistory: readonly ChatHistoryItem[]
-      readonly request: string
-    }
-    export interface Response {
-      readonly newChatHistory: ChatHistoryItem[]
-    }
-    export interface ChatHistoryItem {
-      readonly request: string
-      readonly explanations: string
-      readonly headers: readonly ExtensionHeader[]
-    }
-  }
 }
