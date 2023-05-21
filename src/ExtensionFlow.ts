@@ -6,7 +6,6 @@ export namespace ExtensionFlow {
   interface Base {
     readonly id: Id
     readonly authorId: Id
-    readonly name: string
     readonly headers: PartialReadonlyRecord<ExtensionFlow.PublicationMode, ExtensionFlow.Header>
     readonly testerUserNames: readonly string[]
     readonly targetUserNames: readonly string[]
@@ -27,7 +26,7 @@ export namespace ExtensionFlow {
     Published = 'PUBLISHED',
   }
 
-  export interface Header extends Omit<ExtensionHeader, 'id' | 'author' | 'name'> {
+  export interface Header extends Omit<ExtensionHeader, 'id' | 'author'> {
     readonly aiDescription: string
   }
 
@@ -53,7 +52,6 @@ export namespace ExtensionFlow {
         name: developer.name,
         email: developer.email,
       },
-      name: flow.name,
     }
   }
 }
