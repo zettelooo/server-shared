@@ -7,7 +7,6 @@ export namespace ExtensionFlow {
     readonly id: Id
     readonly authorId: Id
     readonly headers: PartialReadonlyRecord<ExtensionFlow.PublicationMode, ExtensionFlow.Header>
-    readonly aiDescription: string
     readonly testerUserNames: readonly string[]
     readonly targetUserNames: readonly string[]
     readonly stagedToBePublished: boolean
