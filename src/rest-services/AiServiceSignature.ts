@@ -27,6 +27,7 @@ export namespace AiServiceSignature {
       readonly code: string | null
     }
     export interface Action {
+      /** @example ["alpha(beta: string, gamma?: number): Promise<boolean> // Does blah blah by the given beta and gamma, then returns blah"] */
       readonly signatures: readonly string[]
       readonly extendSignaturesWith?: 'available extensions'
     }
