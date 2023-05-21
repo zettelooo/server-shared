@@ -18,7 +18,7 @@ export namespace AiServiceSignature {
     }
   }
 
-  export namespace SmartPageCommand {
+  export namespace SmartCommand {
     export interface Request {
       readonly api: ReadonlyRecord<string, Action>
       readonly command: string
