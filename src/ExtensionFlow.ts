@@ -17,7 +17,7 @@ export namespace ExtensionFlow {
   }
 
   export interface Display extends Base {
-    readonly accessKeyNames: readonly string[]
+    readonly shortenedAccessKeysByName: ReadonlyRecord<string, string>
   }
 
   export enum PublicationMode {
@@ -34,7 +34,10 @@ export namespace ExtensionFlow {
     const { accessKeysByName, ...others } = document
     return {
       ...others,
-      accessKeyNames: Object.keys(accessKeysByName),
+      shortenedAccessKeysByName: Object.keys(accessKeysByName).reduce((current, name) => {
+        current[name] = `${accessKeysByName[name].slice(0, 7)}...`
+        return current
+      }, {} as Record<string, string>),
     }
   }
 
