@@ -26,9 +26,7 @@ export namespace ExtensionFlow {
     Published = 'PUBLISHED',
   }
 
-  export interface Header extends Omit<ExtensionHeader, 'id' | 'author'> {
-    readonly aiDescription: string
-  }
+  export type Header = Omit<ExtensionHeader, 'id' | 'author'>
 
   export function convertDocumentToDisplay(document: Document): Display {
     const { accessKeysByName, ...others } = document
