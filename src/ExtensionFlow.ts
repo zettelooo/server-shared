@@ -44,9 +44,8 @@ export namespace ExtensionFlow {
     header: Header,
     developer: Developer.Document | Developer.Display
   ): ExtensionHeader {
-    const { aiDescription, ...others } = header
     return {
-      ...others,
+      ...header,
       id: flow.id,
       author: {
         id: flow.authorId,

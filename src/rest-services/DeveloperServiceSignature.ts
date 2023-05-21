@@ -112,16 +112,6 @@ export namespace DeveloperServiceSignature {
     export interface Response {}
   }
 
-  export namespace EditExtensionAiDescription {
-    export interface Request {
-      readonly developerId: Id
-      readonly extensionId: Id
-      readonly publicationMode: ExtensionFlow.PublicationMode
-      readonly aiDescription: string
-    }
-    export interface Response {}
-  }
-
   export namespace ModifyExtensionRelatedUserName {
     export interface Request {
       readonly developerId: Id
