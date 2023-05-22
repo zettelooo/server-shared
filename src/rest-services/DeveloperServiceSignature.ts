@@ -83,6 +83,13 @@ export namespace DeveloperServiceSignature {
     export interface Response {}
   }
 
+  export namespace CreateExtensionFlow {
+    export interface Request {
+      readonly appId: Id
+    }
+    export interface Response {}
+  }
+
   export namespace DeleteExtension {
     export interface Request {
       readonly developerId: Id
