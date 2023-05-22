@@ -85,6 +85,7 @@ export namespace DeveloperServiceSignature {
 
   export namespace CreateExtensionFlow {
     export interface Request {
+      readonly developerId: Id
       readonly appId: Id
     }
     export interface Response {}
