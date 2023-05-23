@@ -2,7 +2,7 @@
 
 import { ReadonlyRecord, Id } from '@zettelooo/commons'
 
-const managedDataById: ReadonlyRecord<Id, any> = {
+const dataById: ReadonlyRecord<Id, any> = {
   // 'zettel.daily-focus': undefined,
   // 'zettel.daily-review': undefined,
   // 'zettel.daily-standup': undefined,
@@ -23,11 +23,11 @@ const managedDataById: ReadonlyRecord<Id, any> = {
 }
 
 export namespace PagePreInstalledExtensions {
-  export const ids: readonly Id[] = Object.keys(managedDataById)
+  export const ids: readonly Id[] = Object.keys(dataById)
 
-  export const managedData: ReadonlyRecord<Id, any> = ids.reduce((current, id) => {
-    if (managedDataById[id] !== undefined) {
-      current[id] = managedDataById[id]
+  export const data: ReadonlyRecord<Id, any> = ids.reduce((current, id) => {
+    if (dataById[id] !== undefined) {
+      current[id] = dataById[id]
     }
     return current
   }, {} as Record<Id, any>)
