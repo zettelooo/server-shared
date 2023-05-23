@@ -49,11 +49,7 @@ export namespace AdminServiceSignature {
 
   export interface PageData {
     readonly userDailyActivities: readonly UserDailyActivity[]
-    readonly users: readonly PageData.User[]
+    readonly users: readonly MutableModel.Entity.User[]
     readonly demoModeByUsername: ReadonlyRecord<string, readonly Timestamp[]>
-  }
-
-  export namespace PageData {
-    export type User = MutableModel.Entity.User & Pick<MutableModel.Entity.Account, 'pageTemplateUpvotes'>
   }
 }

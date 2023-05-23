@@ -51,20 +51,6 @@ export namespace CoreServiceSignature {
     export interface Response {}
   }
 
-  export namespace UpsertReaction {
-    export interface Request {
-      readonly reaction: Required<MutableModel.Entity<MutableModel.Type.Reaction>>
-    }
-    export interface Response {}
-  }
-
-  export namespace UpsertTemplate {
-    export interface Request {
-      readonly template: Required<MutableModel.Entity<MutableModel.Type.Template>>
-    }
-    export interface Response {}
-  }
-
   export namespace UpsertBadge {
     export interface Request {
       readonly badge: Required<MutableModel.Entity<MutableModel.Type.Badge>>

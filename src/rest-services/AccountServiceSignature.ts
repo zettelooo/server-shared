@@ -65,16 +65,6 @@ export namespace AccountServiceSignature {
     }
   }
 
-  export namespace GetBillingLink {
-    export interface Request {
-      readonly targetSubscription: MutableModel.Account.Subscription
-    }
-    export interface Response {
-      readonly onlyViaEmail: boolean
-      readonly billingLink: string
-    }
-  }
-
   export namespace WipeOut {
     export interface Request {}
     export interface Response {}

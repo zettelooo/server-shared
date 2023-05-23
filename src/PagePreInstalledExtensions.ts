@@ -10,7 +10,7 @@ const managedDataById: ReadonlyRecord<Id, any> = {
   // 'zettel.gallery-view': undefined,
   // 'zettel.google-docs-sync': undefined,
   // 'zettel.insert-nft': undefined,
-  'zettel.link-preview': { enabled: true },
+  // 'zettel.link-preview': { enabled: true },
   // 'zettel.link-summarizer': undefined,
   // 'zettel.mood-tracker': undefined,
   // 'zettel.nft-collection-info': undefined,

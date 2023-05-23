@@ -74,7 +74,6 @@ export namespace FunnelServiceGetPublicCardMessagesSignature {
       | MutableModel.Type.Card
       | MutableModel.Type.Page
       | MutableModel.Type.PageMember
-      | MutableModel.Type.AggregatedReaction
       | MutableModel.Type.Comment
     >
     readonly sequence: number
