@@ -16,6 +16,6 @@ export namespace SearchServiceSignature {
     readonly userName: string
     readonly email: string
     readonly avatarFileId: Id | null
-    readonly backgroundColor: string
+    readonly color: string
   }
 }
