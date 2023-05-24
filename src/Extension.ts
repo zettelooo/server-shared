@@ -6,7 +6,7 @@ export namespace Extension {
     interface Base {
       readonly id: Id
       readonly authorId: Id
-      readonly headers: PartialReadonlyRecord<PublicationMode, Version>
+      readonly phases: PartialReadonlyRecord<PublicationMode, Phase>
       readonly testerUserNames: readonly string[]
       readonly targetUserNames: readonly string[]
       readonly stagedToBePublished: boolean
@@ -26,7 +26,7 @@ export namespace Extension {
       Published = 'PUBLISHED',
     }
 
-    export type Version = Omit<Header, 'id' | 'author'>
+    export type Phase = Omit<Header, 'id' | 'author'>
   }
 
   export interface Header {
@@ -63,13 +63,13 @@ export namespace Extension {
     }
   }
 
-  export function convertFlowVersionToHeader(
+  export function convertFlowPhaseToHeader(
     flow: Flow.Document | Flow.Display,
-    version: Flow.Version,
+    phase: Flow.Phase,
     developer: Developer.Document | Developer.Display
   ): Header {
     return {
-      ...version,
+      ...phase,
       id: flow.id,
       author: {
         id: flow.authorId,
