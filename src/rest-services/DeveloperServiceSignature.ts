@@ -7,12 +7,7 @@ export namespace DeveloperServiceSignature {
     export interface Request {}
     export interface Response {
       readonly developers: readonly Developer.Display[]
-      readonly reviewingExtensionHeaders: readonly ReviewingExtensionHeader[]
-    }
-    export interface ReviewingExtensionHeader {
-      readonly id: Id
-      readonly name: string
-      readonly version: string | null
+      readonly reviewingExtensionHeaders: readonly Extension.Header[]
     }
   }
 
