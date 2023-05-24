@@ -2,7 +2,9 @@ import { ZettelTypes } from '@zettelooo/api-types'
 import { MutableModel } from '@zettelooo/models'
 
 export namespace User {
-  export function toPublic(user: MutableModel.Entity.User): ZettelTypes.Personal.Entity.User {
+  export function toPublic(
+    user: MutableModel.Entity.User | MutableModel.Entity.Account
+  ): ZettelTypes.Personal.Entity.User {
     return {
       type: ZettelTypes.Model.Type.User,
       id: user.id,
