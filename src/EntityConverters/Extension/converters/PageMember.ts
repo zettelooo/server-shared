@@ -1,7 +1,7 @@
 import { ZettelTypes } from '@zettelooo/api-types'
 import { MutableModel } from '@zettelooo/models'
 
-export namespace PageMemberMember {
+export namespace PageMember {
   export function toPublic(pageMember: MutableModel.Entity.PageMember): ZettelTypes.Extension.Entity.PageMember {
     return {
       type: ZettelTypes.Model.Type.PageMember,
