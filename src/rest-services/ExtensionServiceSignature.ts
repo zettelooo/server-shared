@@ -1,5 +1,5 @@
 import { Id } from '@zettelooo/commons'
-import { ExtensionHeader, ExtensionScope } from '@zettelooo/models'
+import { Extension } from '../Extension'
 
 export namespace ExtensionServiceSignature {
   export namespace GetHeadersByIds {
@@ -8,7 +8,7 @@ export namespace ExtensionServiceSignature {
       readonly ids: readonly Id[]
     }
     export interface Response {
-      readonly headers: ExtensionHeader[]
+      readonly headers: Extension.Header[]
     }
   }
 
@@ -16,10 +16,10 @@ export namespace ExtensionServiceSignature {
     export interface Request {
       readonly accountId?: Id
       readonly query: string
-      readonly scope: ExtensionScope
+      readonly scope: Extension.Scope
     }
     export interface Response {
-      readonly headers: ExtensionHeader[]
+      readonly headers: Extension.Header[]
     }
   }
 }

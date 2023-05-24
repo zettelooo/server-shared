@@ -5,7 +5,7 @@ export * from './web-socket-services'
 
 export * from './DecodedAccessToken'
 export * from './Developer'
-export * from './ExtensionFlow'
+export * from './Extension'
 export * from './generateSequence'
 export * from './PagePreInstalledExtensions'
 export * from './UserDailyActivity'

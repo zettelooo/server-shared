@@ -1,14 +1,18 @@
 import { Id } from '@zettelooo/commons'
-import { ExtensionHeader } from '@zettelooo/models'
 import { Developer } from '../Developer'
-import { ExtensionFlow } from '../ExtensionFlow'
+import { Extension } from '../Extension'
 
 export namespace DeveloperServiceSignature {
   export namespace AdminGetPageData {
     export interface Request {}
     export interface Response {
       readonly developers: readonly Developer.Display[]
-      readonly reviewingExtensionHeaders: readonly ExtensionHeader[]
+      readonly reviewingExtensionHeaders: readonly ReviewingExtensionHeader[]
+    }
+    export interface ReviewingExtensionHeader {
+      readonly id: Id
+      readonly name: string
+      readonly version: string | null
     }
   }
 
@@ -57,7 +61,7 @@ export namespace DeveloperServiceSignature {
     }
     export interface Response {
       readonly signedInDeveloper: Developer.Display
-      readonly extensionFlows: readonly ExtensionFlow.Display[]
+      readonly extensionFlows: readonly Extension.Flow.Display[]
     }
   }
 
@@ -95,7 +99,7 @@ export namespace DeveloperServiceSignature {
     export interface Request {
       readonly developerId: Id
       readonly extensionId: Id
-      readonly publicationMode?: ExtensionFlow.PublicationMode
+      readonly publicationMode?: Extension.Flow.PublicationMode
     }
     export interface Response {}
   }
