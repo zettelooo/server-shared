@@ -1,5 +1,6 @@
 import { ZettelTypes } from '@zettelooo/api-types'
 import { MutableModel } from '@zettelooo/models'
+import { Block } from './Block'
 
 export namespace Card {
   export function toPublic(card: MutableModel.Entity.Card): ZettelTypes.Personal.Entity.Card {
@@ -15,10 +16,7 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block => {
-        const { extensionData, ...others } = block
-        return others
-      }), // TODO: May require deep conversion in the future
+      blocks: card.blocks.map(block => Block.toPublic(block)),
     }
   }
 
@@ -38,10 +36,12 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block => ({
-        ...block,
-        extensionData: current?.blocks.find(oldBlock => oldBlock.id === block.id)?.extensionData ?? {},
-      })), // TODO: May require deep conversion in the future
+      blocks: card.blocks.map(block =>
+        Block.fromPublic(
+          block,
+          current?.blocks.find(currentBlock => currentBlock.id === block.id)
+        )
+      ),
       extensionData: current?.extensionData ?? {},
     }
   }

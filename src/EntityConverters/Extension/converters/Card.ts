@@ -1,6 +1,7 @@
 import { ZettelTypes } from '@zettelooo/api-types'
 import { Id } from '@zettelooo/commons'
 import { MutableModel } from '@zettelooo/models'
+import { Block } from './Block'
 
 export namespace Card {
   export function toPublic(card: MutableModel.Entity.Card, extensionId: Id): ZettelTypes.Extension.Entity.Card {
@@ -16,21 +17,22 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block => {
-        const { extensionData, ...others } = block
-        return {
-          ...others,
-          extensionData: block.extensionData[extensionId],
-        }
-      }), // TODO: May require deep conversion in the future
+      blocks: card.blocks.map(block => Block.toPublic(block, extensionId)),
       extensionData: card.extensionData[extensionId],
     }
   }
 
   export function fromPublic(
     card: ZettelTypes.Extension.Entity.Card,
+    extensionId: Id,
     current?: Pick<MutableModel.Card, 'blocks' | 'extensionData'>
   ): MutableModel.Entity.Card {
+    const extensionData = { ...(current?.extensionData ?? {}) }
+    if (card.extensionData === undefined) {
+      delete extensionData[extensionId]
+    } else {
+      extensionData[extensionId] = card.extensionData
+    }
     return {
       type: MutableModel.Type.Card,
       id: card.id,
@@ -43,11 +45,14 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block => ({
-        ...block,
-        extensionData: current?.blocks.find(oldBlock => oldBlock.id === block.id)?.extensionData ?? {},
-      })), // TODO: May require deep conversion in the future
-      extensionData: current?.extensionData ?? {},
+      blocks: card.blocks.map(block =>
+        Block.fromPublic(
+          block,
+          extensionId,
+          current?.blocks.find(currentBlock => currentBlock.id === block.id)
+        )
+      ),
+      extensionData,
     }
   }
 }

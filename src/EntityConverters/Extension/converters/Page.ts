@@ -27,8 +27,21 @@ export namespace Page {
 
   export function fromPublic(
     page: ZettelTypes.Extension.Entity.Page,
+    extensionId: Id,
     current?: Pick<MutableModel.Page, 'extensionIds' | 'extensionData'>
   ): MutableModel.Entity.Page {
+    const extensionIds = [...(current?.extensionIds ?? PagePreInstalledExtensions.ids)]
+    if (page.hasExtensionInstalled) {
+      extensionIds.includes(extensionId) || extensionIds.push(extensionId)
+    } else {
+      extensionIds.includes(extensionId) && extensionIds.splice(extensionIds.indexOf(extensionId), 1)
+    }
+    const extensionData = { ...(current?.extensionData ?? PagePreInstalledExtensions.data) }
+    if (page.extensionData === undefined) {
+      delete extensionData[extensionId]
+    } else {
+      extensionData[extensionId] = page.extensionData
+    }
     return {
       type: MutableModel.Type.Page,
       id: page.id,
@@ -46,8 +59,8 @@ export namespace Page {
       view: page.view, // TODO: We require a more proper conversion here in the future
       public: page.public,
       maximumAutomaticallyAssignedRole: null,
-      extensionIds: current?.extensionIds ?? PagePreInstalledExtensions.ids,
-      extensionData: current?.extensionData ?? PagePreInstalledExtensions.data,
+      extensionIds,
+      extensionData,
     }
   }
 }
