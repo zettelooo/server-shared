@@ -1,4 +1,3 @@
-export * from './converters/Account'
 export * from './converters/User'
 export * from './converters/Page'
 export * from './converters/PageMember'

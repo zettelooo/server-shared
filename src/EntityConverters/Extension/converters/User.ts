@@ -19,4 +19,22 @@ export namespace User {
       avatarFileId: user.avatarFileId,
     }
   }
+
+  export function fromPublic(
+    user: ZettelTypes.Extension.Entity.User,
+    current: MutableModel.Entity.Account
+  ): MutableModel.Entity.Account {
+    return {
+      ...current,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+      version: user.version,
+      isDeleted: user.isDeleted,
+      name: user.name,
+      userName: user.userName,
+      email: user.email,
+      color: user.color,
+      avatarFileId: user.avatarFileId,
+    }
+  }
 }
