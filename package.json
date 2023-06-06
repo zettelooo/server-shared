@@ -21,8 +21,8 @@
     "test": "echo \"No test yet.\""
   },
   "peerDependencies": {
-    "@zettelooo/api-types": "^4.3.0",
-    "@zettelooo/commons": "^2.4.1",
+    "@zettelooo/api-types": "^4.4.0",
+    "@zettelooo/commons": "^2.5.0",
     "@zettelooo/models": "^3.1.0"
   },
   "devDependencies": {
