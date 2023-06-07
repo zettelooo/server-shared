@@ -57,7 +57,7 @@ export namespace Extension {
     return {
       ...others,
       shortenedAccessKeysByName: Object.keys(accessKeysByName).reduce((current, name) => {
-        current[name] = `${accessKeysByName[name].slice(0, 7)}...`
+        current[name] = `${accessKeysByName[name].slice(0, 8)}...${accessKeysByName[name].slice(-4)}`
         return current
       }, {} as Record<string, string>),
     }
