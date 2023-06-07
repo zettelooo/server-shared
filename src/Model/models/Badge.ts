@@ -25,11 +25,6 @@ export namespace Badge {
       readonly userId: Id
       readonly cardId: Id
     }
-    [Action.Type.MentionInCard]: {
-      readonly type: Action.Type.MentionInCard
-      readonly userId: Id
-      readonly cardId: Id
-    }
   }[T]
 
   export namespace Action {
@@ -37,7 +32,6 @@ export namespace Badge {
       JoinPage = 'JOIN_PAGE',
       CreateCard = 'CREATE_CARD',
       UpdateCard = 'UPDATE_CARD',
-      MentionInCard = 'MENTION_IN_CARD',
     }
   }
 }
