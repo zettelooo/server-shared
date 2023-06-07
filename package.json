@@ -1,7 +1,7 @@
 {
   "name": "@zettelooo/server-shared",
   "description": "Zettel: Shared by Web & Server",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "files": [
     "dist/**"
   ],
