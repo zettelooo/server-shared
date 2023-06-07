@@ -1,11 +1,11 @@
 import { ZettelTypes } from '@zettelooo/api-types'
-import { MutableModel } from '@zettelooo/models'
 import { PagePreInstalledExtensions } from '../../../PagePreInstalledExtensions'
+import { Model } from '../../../Model'
 
 export namespace Page {
-  export function toPublic(page: MutableModel.Entity.Page): ZettelTypes.Personal.Entity.Page {
+  export function toPublic(page: Model.Page): ZettelTypes.Personal.Model.Page {
     return {
-      type: ZettelTypes.Model.Type.Page,
+      type: ZettelTypes.Personal.Model.Type.Page,
       id: page.id,
       createdAt: page.createdAt,
       updatedAt: page.updatedAt,
@@ -23,11 +23,11 @@ export namespace Page {
   }
 
   export function fromPublic(
-    page: ZettelTypes.Personal.Entity.Page,
-    current?: Pick<MutableModel.Page, 'extensionIds' | 'extensionData'>
-  ): MutableModel.Entity.Page {
+    page: ZettelTypes.Personal.Model.Page,
+    current?: Pick<Model.Page, 'extensionIds' | 'extensionData'>
+  ): Model.Page {
     return {
-      type: MutableModel.Type.Page,
+      type: Model.Type.Page,
       id: page.id,
       createdAt: page.createdAt,
       updatedAt: page.updatedAt,

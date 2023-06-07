@@ -1,10 +1,10 @@
 import { ZettelTypes } from '@zettelooo/api-types'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../../../Model'
 
 export namespace PageMember {
-  export function toPublic(pageMember: MutableModel.Entity.PageMember): ZettelTypes.Personal.Entity.PageMember {
+  export function toPublic(pageMember: Model.PageMember): ZettelTypes.Personal.Model.PageMember {
     return {
-      type: ZettelTypes.Model.Type.PageMember,
+      type: ZettelTypes.Personal.Model.Type.PageMember,
       id: pageMember.id,
       createdAt: pageMember.createdAt,
       updatedAt: pageMember.updatedAt,
@@ -16,9 +16,9 @@ export namespace PageMember {
     }
   }
 
-  export function fromPublic(pageMember: ZettelTypes.Personal.Entity.PageMember): MutableModel.Entity.PageMember {
+  export function fromPublic(pageMember: ZettelTypes.Personal.Model.PageMember): Model.PageMember {
     return {
-      type: MutableModel.Type.PageMember,
+      type: Model.Type.PageMember,
       id: pageMember.id,
       createdAt: pageMember.createdAt,
       updatedAt: pageMember.updatedAt,

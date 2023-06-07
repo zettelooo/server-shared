@@ -1,5 +1,5 @@
 import { Timestamp, Id, PartialReadonlyRecord } from '@zettelooo/commons'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../Model'
 
 export namespace FunnelServiceGetMessagesSignature {
   export type RequestMessage<T extends RequestMessage.Type = RequestMessage.Type> = {
@@ -88,7 +88,7 @@ export namespace FunnelServiceGetMessagesSignature {
   }
 
   export interface Mutation {
-    readonly entity: MutableModel.Entity
+    readonly model: Model.ByType
     readonly sequence: number
     readonly sequenceSource?: Mutation.SequenceSource
   }

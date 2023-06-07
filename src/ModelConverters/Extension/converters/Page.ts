@@ -1,12 +1,12 @@
 import { ZettelTypes } from '@zettelooo/api-types'
-import { MutableModel } from '@zettelooo/models'
-import { PagePreInstalledExtensions } from '../../../PagePreInstalledExtensions'
 import { Id } from '@zettelooo/commons'
+import { Model } from '../../../Model'
+import { PagePreInstalledExtensions } from '../../../PagePreInstalledExtensions'
 
 export namespace Page {
-  export function toPublic(page: MutableModel.Entity.Page, extensionId: Id): ZettelTypes.Extension.Entity.Page {
+  export function toPublic(page: Model.Page, extensionId: Id): ZettelTypes.Extension.Model.Page {
     return {
-      type: ZettelTypes.Model.Type.Page,
+      type: ZettelTypes.Extension.Model.Type.Page,
       id: page.id,
       createdAt: page.createdAt,
       updatedAt: page.updatedAt,
@@ -26,10 +26,10 @@ export namespace Page {
   }
 
   export function fromPublic(
-    page: ZettelTypes.Extension.Entity.Page,
+    page: ZettelTypes.Extension.Model.Page,
     extensionId: Id,
-    current?: Pick<MutableModel.Page, 'extensionIds' | 'extensionData'>
-  ): MutableModel.Entity.Page {
+    current?: Pick<Model.Page, 'extensionIds' | 'extensionData'>
+  ): Model.Page {
     const extensionIds = [...(current?.extensionIds ?? PagePreInstalledExtensions.ids)]
     if (page.hasExtensionInstalled) {
       extensionIds.includes(extensionId) || extensionIds.push(extensionId)
@@ -43,7 +43,7 @@ export namespace Page {
       extensionData[extensionId] = page.extensionData
     }
     return {
-      type: MutableModel.Type.Page,
+      type: Model.Type.Page,
       id: page.id,
       createdAt: page.createdAt,
       updatedAt: page.updatedAt,

@@ -1,11 +1,10 @@
 import { ZettelTypes } from '@zettelooo/api-types'
-import { MutableModel } from '@zettelooo/models'
-import { Block } from './Block'
+import { Model } from '../../../Model'
 
 export namespace Card {
-  export function toPublic(card: MutableModel.Entity.Card): ZettelTypes.Personal.Entity.Card {
+  export function toPublic(card: Model.Card): ZettelTypes.Personal.Model.Card {
     return {
-      type: ZettelTypes.Model.Type.Card,
+      type: ZettelTypes.Personal.Model.Type.Card,
       id: card.id,
       createdAt: card.createdAt,
       updatedAt: card.updatedAt,
@@ -16,16 +15,17 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block => Block.toPublic(block)),
+      text: card.text,
+      files: card.files, // TODO: We require a more proper conversion here in the future
     }
   }
 
   export function fromPublic(
-    card: ZettelTypes.Personal.Entity.Card,
-    current?: Pick<MutableModel.Card, 'blocks' | 'extensionData'>
-  ): MutableModel.Entity.Card {
+    card: ZettelTypes.Personal.Model.Card,
+    current?: Pick<Model.Card, 'extensionData'>
+  ): Model.Card {
     return {
-      type: MutableModel.Type.Card,
+      type: Model.Type.Card,
       id: card.id,
       createdAt: card.createdAt,
       updatedAt: card.updatedAt,
@@ -36,12 +36,8 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block =>
-        Block.fromPublic(
-          block,
-          current?.blocks.find(currentBlock => currentBlock.id === block.id)
-        )
-      ),
+      text: card.text,
+      files: card.files, // TODO: We require a more proper conversion here in the future
       extensionData: current?.extensionData ?? {},
     }
   }

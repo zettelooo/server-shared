@@ -1,12 +1,10 @@
 import { ZettelTypes } from '@zettelooo/api-types'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../../../Model'
 
 export namespace User {
-  export function toPublic(
-    user: MutableModel.Entity.User | MutableModel.Entity.Account
-  ): ZettelTypes.Personal.Entity.User {
+  export function toPublic(user: Model.User | Model.Account): ZettelTypes.Extension.Model.User {
     return {
-      type: ZettelTypes.Model.Type.User,
+      type: ZettelTypes.Extension.Model.Type.User,
       id: user.id,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
@@ -20,10 +18,7 @@ export namespace User {
     }
   }
 
-  export function fromPublic(
-    user: ZettelTypes.Personal.Entity.User,
-    current: MutableModel.Entity.Account
-  ): MutableModel.Entity.Account {
+  export function fromPublic(user: ZettelTypes.Extension.Model.User, current: Model.Account): Model.Account {
     return {
       ...current,
       createdAt: user.createdAt,

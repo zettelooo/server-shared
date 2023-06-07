@@ -1,5 +1,5 @@
 import { Id, Timestamp } from '@zettelooo/commons'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../Model'
 
 export namespace FunnelServiceGetPublicCardMessagesSignature {
   export type RequestMessage<T extends RequestMessage.Type = RequestMessage.Type> = {
@@ -69,13 +69,7 @@ export namespace FunnelServiceGetPublicCardMessagesSignature {
   }
 
   export interface Mutation {
-    readonly entity: MutableModel.Entity<
-      | MutableModel.Type.User
-      | MutableModel.Type.Card
-      | MutableModel.Type.Page
-      | MutableModel.Type.PageMember
-      | MutableModel.Type.Comment
-    >
+    readonly model: Model.User | Model.Card | Model.Page | Model.PageMember | Model.Comment
     readonly sequence: number
   }
 }

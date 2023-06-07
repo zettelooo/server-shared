@@ -1,5 +1,5 @@
 import { Id, ReadonlyRecord, Timestamp } from '@zettelooo/commons'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../Model'
 import { UserDailyActivity } from '../UserDailyActivity'
 
 export namespace AdminServiceSignature {
@@ -49,7 +49,7 @@ export namespace AdminServiceSignature {
 
   export interface PageData {
     readonly userDailyActivities: readonly UserDailyActivity[]
-    readonly users: readonly MutableModel.Entity.User[]
+    readonly users: readonly Model.User[]
     readonly demoModeByUsername: ReadonlyRecord<string, readonly Timestamp[]>
   }
 }

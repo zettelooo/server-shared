@@ -1,59 +1,59 @@
 import { Id } from '@zettelooo/commons'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../Model'
 
 export namespace CoreServiceSignature {
   export namespace UpsertAccount {
     export interface Request {
-      readonly account: Required<MutableModel.Entity<MutableModel.Type.Account>>
+      readonly account: Required<Model.Account>
     }
     export interface Response {}
   }
 
   export namespace UpsertSpace {
     export interface Request {
-      readonly space: Required<MutableModel.Entity<MutableModel.Type.Space>>
+      readonly space: Required<Model.Space>
     }
     export interface Response {}
   }
 
   export namespace UpsertSpaceMember {
     export interface Request {
-      readonly spaceMember: Required<MutableModel.Entity<MutableModel.Type.SpaceMember>>
+      readonly spaceMember: Required<Model.SpaceMember>
     }
     export interface Response {}
   }
 
   export namespace UpsertPage {
     export interface Request {
-      readonly page: Required<MutableModel.Entity<MutableModel.Type.Page>>
+      readonly page: Required<Model.Page>
     }
     export interface Response {}
   }
 
   export namespace UpsertPageMember {
     export interface Request {
-      readonly pageMember: Required<MutableModel.Entity<MutableModel.Type.PageMember>>
+      readonly pageMember: Required<Model.PageMember>
     }
     export interface Response {}
   }
 
   export namespace UpsertCard {
     export interface Request {
-      readonly card: Required<MutableModel.Entity<MutableModel.Type.Card>>
+      readonly card: Required<Model.Card>
     }
     export interface Response {}
   }
 
   export namespace UpsertComment {
     export interface Request {
-      readonly comment: Required<MutableModel.Entity<MutableModel.Type.Comment>>
+      readonly comment: Required<Model.Comment>
     }
     export interface Response {}
   }
 
   export namespace UpsertBadge {
     export interface Request {
-      readonly badge: Required<MutableModel.Entity<MutableModel.Type.Badge>>
+      readonly badge: Required<Model.Badge>
     }
     export interface Response {}
   }
@@ -62,8 +62,8 @@ export namespace CoreServiceSignature {
     export interface Request {
       readonly spaceId: Id
       readonly email: string
-      readonly role: MutableModel.SpaceMember.Role
-      readonly defaultPageMemberRole: MutableModel.PageMember.Role | null
+      readonly role: Model.SpaceMember.Role
+      readonly defaultPageMemberRole: Model.PageMember.Role | null
     }
     export interface Response {}
   }
@@ -72,7 +72,7 @@ export namespace CoreServiceSignature {
     export interface Request {
       readonly pageId: Id
       readonly email: string
-      readonly role: MutableModel.PageMember.Role | null
+      readonly role: Model.PageMember.Role | null
     }
     export interface Response {}
   }

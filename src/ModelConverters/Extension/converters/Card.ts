@@ -1,12 +1,11 @@
 import { ZettelTypes } from '@zettelooo/api-types'
 import { Id } from '@zettelooo/commons'
-import { MutableModel } from '@zettelooo/models'
-import { Block } from './Block'
+import { Model } from '../../../Model'
 
 export namespace Card {
-  export function toPublic(card: MutableModel.Entity.Card, extensionId: Id): ZettelTypes.Extension.Entity.Card {
+  export function toPublic(card: Model.Card, extensionId: Id): ZettelTypes.Extension.Model.Card {
     return {
-      type: ZettelTypes.Model.Type.Card,
+      type: ZettelTypes.Extension.Model.Type.Card,
       id: card.id,
       createdAt: card.createdAt,
       updatedAt: card.updatedAt,
@@ -17,16 +16,17 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block => Block.toPublic(block, extensionId)),
+      text: card.text,
+      files: card.files, // TODO: We require a more proper conversion here in the future
       extensionData: card.extensionData[extensionId],
     }
   }
 
   export function fromPublic(
-    card: ZettelTypes.Extension.Entity.Card,
+    card: ZettelTypes.Extension.Model.Card,
     extensionId: Id,
-    current?: Pick<MutableModel.Card, 'blocks' | 'extensionData'>
-  ): MutableModel.Entity.Card {
+    current?: Pick<Model.Card, 'extensionData'>
+  ): Model.Card {
     const extensionData = { ...(current?.extensionData ?? {}) }
     if (card.extensionData === undefined) {
       delete extensionData[extensionId]
@@ -34,7 +34,7 @@ export namespace Card {
       extensionData[extensionId] = card.extensionData
     }
     return {
-      type: MutableModel.Type.Card,
+      type: Model.Type.Card,
       id: card.id,
       createdAt: card.createdAt,
       updatedAt: card.updatedAt,
@@ -45,13 +45,8 @@ export namespace Card {
       color: card.color,
       pageId: card.pageId,
       sequence: card.sequence,
-      blocks: card.blocks.map(block =>
-        Block.fromPublic(
-          block,
-          extensionId,
-          current?.blocks.find(currentBlock => currentBlock.id === block.id)
-        )
-      ),
+      text: card.text,
+      files: card.files, // TODO: We require a more proper conversion here in the future
       extensionData,
     }
   }

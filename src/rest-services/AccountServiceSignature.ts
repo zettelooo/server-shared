@@ -1,5 +1,5 @@
 import { Id, PartialReadonlyRecord } from '@zettelooo/commons'
-import { MutableModel } from '@zettelooo/models'
+import { Model } from '../Model'
 
 export namespace AccountServiceSignature {
   export namespace GoogleSignInGetAuthLink {
@@ -73,7 +73,7 @@ export namespace AccountServiceSignature {
   export namespace NewUserData {
     export type NeededField = 'name' | 'userName' | 'email' | 'walletAddress'
     export type NeededFields = readonly NeededField[]
-    export type NeededValues = Partial<Pick<MutableModel.Account, NeededField>>
+    export type NeededValues = Partial<Pick<Model.Account, NeededField>>
     export type NeededValuesErrors = PartialReadonlyRecord<NeededField, string>
   }
 
