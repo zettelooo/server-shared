@@ -16,6 +16,5 @@ export type ByType<T extends Type = Type> = {
   [Type.Page]: Page
   [Type.PageMember]: PageMember
   [Type.Card]: Card
-  [Type.Comment]: Comment
   [Type.Badge]: Badge
 }[T]

@@ -6,6 +6,5 @@ export enum Type {
   Page = 'PAGE',
   PageMember = 'PAGE_MEMBER',
   Card = 'CARD',
-  Comment = 'COMMENT',
   Badge = 'BADGE',
 }

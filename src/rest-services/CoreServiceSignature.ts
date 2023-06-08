@@ -44,13 +44,6 @@ export namespace CoreServiceSignature {
     export interface Response {}
   }
 
-  export namespace UpsertComment {
-    export interface Request {
-      readonly comment: Required<Model.Comment>
-    }
-    export interface Response {}
-  }
-
   export namespace UpsertBadge {
     export interface Request {
       readonly badge: Required<Model.Badge>
