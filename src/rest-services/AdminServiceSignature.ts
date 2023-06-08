@@ -36,7 +36,7 @@ export namespace AdminServiceSignature {
     }
   }
 
-  export namespace GetPickUserData {
+  export namespace GetPeekUserData {
     export interface Request {
       readonly deviceId: Id
       readonly userId: Id
