@@ -1,17 +1,7 @@
-import { Id, Timestamp } from '@zettelooo/commons'
 import { Base } from '../Base'
-import { Type } from '../Type'
+import { User } from './User'
 
-export interface Account extends Base {
-  readonly type: Type.Account
-  readonly name: string
-  readonly userName: string
-  readonly email: string
-  readonly color: string
-  readonly avatarFileId: string | null
-  readonly lastActiveTimestamp: Timestamp
-
-  readonly extensionIds: readonly Id[]
+export interface Account extends Omit<User, 'type'>, Base {
   readonly isOnboarded: boolean
   readonly walletAddress: string | null
 }

@@ -69,7 +69,7 @@ export namespace FunnelServiceGetPublicPageMessagesSignature {
   }
 
   export interface Mutation {
-    readonly model: Model.User | Model.Card | Model.Page | Model.PageMember
+    readonly model: Model.User | Model.Card | Model.Page
     readonly sequence: number
   }
 }

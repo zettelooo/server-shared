@@ -1,10 +1,10 @@
 import { ZettelTypes } from '@zettelooo/api-types'
-import { Model } from '../../../Model'
+import { Model } from '../Model'
 
 export namespace User {
-  export function toPublic(user: Model.User | Model.Account): ZettelTypes.Personal.Model.User {
+  export function toPublic(user: Model.User | Model.Account): ZettelTypes.Model.User {
     return {
-      type: ZettelTypes.Personal.Model.Type.User,
+      type: ZettelTypes.Model.Type.User,
       id: user.id,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
@@ -13,12 +13,12 @@ export namespace User {
       name: user.name,
       userName: user.userName,
       email: user.email,
-      color: user.color,
       avatarFileId: user.avatarFileId,
+      color: user.color,
     }
   }
 
-  export function fromPublic(user: ZettelTypes.Personal.Model.User, current: Model.Account): Model.Account {
+  export function fromPublic(user: ZettelTypes.Model.User, current: Model.Account): Model.Account {
     return {
       ...current,
       createdAt: user.createdAt,
@@ -28,8 +28,8 @@ export namespace User {
       name: user.name,
       userName: user.userName,
       email: user.email,
-      color: user.color,
       avatarFileId: user.avatarFileId,
+      color: user.color,
     }
   }
 }
