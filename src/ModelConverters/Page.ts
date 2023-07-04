@@ -1,7 +1,6 @@
 import { ZettelTypes } from '@zettelooo/api-types'
 import { Id } from '@zettelooo/commons'
 import { Model } from '../Model'
-import { PagePreInstalledExtensions } from '../PagePreInstalledExtensions'
 
 export namespace Page {
   export function toPublic(page: Model.Page, extensionId: Id): ZettelTypes.Model.Page {
@@ -29,13 +28,13 @@ export namespace Page {
     extensionId: Id,
     current?: Pick<Model.Page, 'extensionIds' | 'dataDictionary'>
   ): Model.Page {
-    const extensionIds = [...(current?.extensionIds ?? PagePreInstalledExtensions.ids)]
+    const extensionIds = [...(current?.extensionIds ?? [])]
     if (page.hasExtensionInstalled) {
       extensionIds.includes(extensionId) || extensionIds.push(extensionId)
     } else {
       extensionIds.includes(extensionId) && extensionIds.splice(extensionIds.indexOf(extensionId), 1)
     }
-    const dataDictionary = { ...(current?.dataDictionary ?? PagePreInstalledExtensions.data) }
+    const dataDictionary = { ...current?.dataDictionary }
     if (page.privateData === undefined) {
       delete dataDictionary[extensionId]
     } else {
