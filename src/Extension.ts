@@ -47,7 +47,6 @@ export namespace Extension {
     readonly documentationMarkdownFile?: string
     readonly scopes: readonly Scope[]
     readonly officialDependencies: ReadonlyRecord<string, string>
-    readonly extensionDependencies?: readonly Id[]
   }
 
   export type Scope = string // TODO: It's placed into the Extension API which is only accessible to Web, server shouldn't care, shoult it?!
