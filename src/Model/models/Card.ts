@@ -6,10 +6,18 @@ export interface Card extends Base {
   readonly type: Type.Card
   readonly pageId: Id
   readonly sequence: string
-  readonly dataDictionary: {
-    readonly [extensionId: Id]: {
-      readonly public?: unknown
-      readonly private?: unknown
-    }
+  readonly dataDictionary: Card.Data.Dictionary
+}
+
+export namespace Card {
+  export interface Data {
+    readonly public?: unknown
+    readonly private?: unknown
+  }
+
+  export namespace Data {
+    export type Dictionary = Partial<{
+      readonly [extensionId: Id]: Data
+    }>
   }
 }

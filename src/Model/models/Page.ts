@@ -12,9 +12,17 @@ export interface Page extends Base {
   readonly memberUserIds: readonly Id[]
   readonly public: boolean
   readonly extensionIds: readonly Id[]
-  readonly dataDictionary: {
-    readonly [extensionId: Id]: {
-      readonly private?: unknown
-    }
+  readonly dataDictionary: Page.Data.Dictionary
+}
+
+export namespace Page {
+  export interface Data {
+    readonly private?: unknown
+  }
+
+  export namespace Data {
+    export type Dictionary = Partial<{
+      readonly [extensionId: Id]: Data
+    }>
   }
 }
