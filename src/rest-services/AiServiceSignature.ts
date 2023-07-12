@@ -1,4 +1,4 @@
-import { Id, ReadonlyRecord } from '@zettelooo/commons'
+import { ReadonlyRecord } from '@zettelooo/commons'
 
 export namespace AiServiceSignature {
   export namespace OpenAiChatGpt {
@@ -30,15 +30,6 @@ export namespace AiServiceSignature {
       /** @example ["alpha(beta: string, gamma?: number): Promise<boolean> // Does blah blah by the given beta and gamma, then returns blah"] */
       readonly signatures: readonly string[]
       readonly extendSignaturesWith?: 'available extensions'
-    }
-  }
-
-  export namespace SmartExtensionSearch {
-    export interface Request {
-      readonly intention: string
-    }
-    export interface Response {
-      readonly extensionIds: readonly Id[]
     }
   }
 }

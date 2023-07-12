@@ -23,19 +23,9 @@ export namespace Page {
     }
   }
 
-  export function fromPublic(
-    page: ZettelTypes.Model.Page,
-    extensionId: Id,
-    current?: Pick<Model.Page, 'extensionIds' | 'dataDictionary'>
-  ): Model.Page {
-    const extensionIds = [...(current?.extensionIds ?? [])]
-    if (page.hasExtensionInstalled) {
-      extensionIds.includes(extensionId) || extensionIds.push(extensionId)
-    } else {
-      extensionIds.includes(extensionId) && extensionIds.splice(extensionIds.indexOf(extensionId), 1)
-    }
+  export function fromPublic(page: ZettelTypes.Model.Page, extensionId: Id, current?: Model.Page): Model.Page {
     const dataDictionary = { ...current?.dataDictionary }
-    if (page.privateData === undefined) {
+    if (page.privateData === undefined || !current?.extensionIds.includes(extensionId)) {
       delete dataDictionary[extensionId]
     } else {
       dataDictionary[extensionId] = { private: page.privateData }
@@ -54,8 +44,9 @@ export namespace Page {
       avatarFileId: page.avatarFileId,
       memberUserIds: page.memberUserIds,
       public: page.public,
-      extensionIds,
       dataDictionary,
+      extensionIds: current?.extensionIds ?? [],
+      servingExtensions: current?.servingExtensions ?? {},
     }
   }
 }
