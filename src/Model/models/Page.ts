@@ -1,8 +1,9 @@
 import { Id } from '@zettelooo/commons'
 import { Base } from '../Base'
 import { Type } from '../Type'
+import { ExtensionConfiguration } from '../types/ExtensionConfiguration'
 
-export interface Page extends Base, Page.ExtensionConfiguration {
+export interface Page extends Base, ExtensionConfiguration {
   readonly type: Type.Page
   readonly name: string
   readonly description: string
@@ -11,32 +12,11 @@ export interface Page extends Base, Page.ExtensionConfiguration {
   readonly color: string
   readonly memberUserIds: readonly Id[]
   readonly public: boolean
-  readonly dataDictionary: Page.Data.Dictionary
+  readonly privateDataDictionary: Page.DataDictionary
 }
 
 export namespace Page {
-  export interface ExtensionConfiguration {
-    readonly extensionIds: readonly Id[]
-    readonly servingExtensions: ExtensionConfiguration.ServingExtensions
-  }
-
-  export namespace ExtensionConfiguration {
-    export interface ServingExtensions {
-      readonly [servingExtensionId: Id]: {
-        readonly [providingServiceName: string]: {
-          readonly consumingExtensionId: Id
-          readonly consumingServiceName: string
-        }
-      }
-    }
-  }
-  export interface Data {
-    readonly private?: unknown
-  }
-
-  export namespace Data {
-    export type Dictionary = Partial<{
-      readonly [extensionId: Id]: Data
-    }>
-  }
+  export type DataDictionary = Partial<{
+    readonly [extensionId: Id]: undefined
+  }>
 }
