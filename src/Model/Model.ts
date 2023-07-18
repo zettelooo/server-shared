@@ -4,6 +4,7 @@ export * from './models/Page'
 export * from './models/Card'
 export * from './models/Badge'
 
+export * from './types/DataDictionary'
 export * from './types/ExtensionConfiguration'
 
 export * from './Type'
