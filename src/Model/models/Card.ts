@@ -7,6 +7,5 @@ export interface Card extends Base {
   readonly type: Type.Card
   readonly pageId: Id
   readonly sequence: string
-  readonly publicDataDictionary: DataDictionary
-  readonly privateDataDictionary: DataDictionary
+  readonly dataDictionary: DataDictionary
 }

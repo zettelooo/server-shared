@@ -14,14 +14,7 @@ export namespace UserDailyActivity {
 
   export type Client = (typeof clients)[number]
 
-  export const actions = [
-    'not specified',
-    'sign in',
-    'upsert space',
-    'upsert page',
-    'open page',
-    'upsert card',
-  ] as const
+  export const actions = ['not specified', 'sign in', 'upsert page', 'open page', 'upsert card'] as const
 
   export type Action = (typeof actions)[number]
 

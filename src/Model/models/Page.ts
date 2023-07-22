@@ -13,5 +13,5 @@ export interface Page extends Base, ExtensionConfiguration {
   readonly color: string
   readonly memberUserIds: readonly Id[]
   readonly public: boolean
-  readonly privateDataDictionary: DataDictionary
+  readonly dataDictionary: DataDictionary
 }
