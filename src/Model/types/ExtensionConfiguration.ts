@@ -12,4 +12,11 @@ export namespace ExtensionConfiguration {
     readonly consumingExtensionId: Id
     readonly consumingServiceName: string
   }
+
+  export function getExtensionIds(extensionConfiguration: ExtensionConfiguration): readonly Id[] {
+    return [
+      ...extensionConfiguration.extensionIds,
+      ...extensionConfiguration.serviceBindings.map(serviceBinding => serviceBinding.providingExtensionId),
+    ].filter((item, index, array) => index === array.indexOf(item))
+  }
 }

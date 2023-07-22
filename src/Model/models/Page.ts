@@ -4,7 +4,7 @@ import { Type } from '../Type'
 import { DataDictionary } from '../types/DataDictionary'
 import { ExtensionConfiguration } from '../types/ExtensionConfiguration'
 
-export interface Page extends Base, ExtensionConfiguration {
+export interface Page extends Base {
   readonly type: Type.Page
   readonly name: string
   readonly description: string
@@ -13,5 +13,6 @@ export interface Page extends Base, ExtensionConfiguration {
   readonly color: string
   readonly memberUserIds: readonly Id[]
   readonly public: boolean
+  readonly extensionConfiguration: ExtensionConfiguration
   readonly dataDictionary: DataDictionary
 }
