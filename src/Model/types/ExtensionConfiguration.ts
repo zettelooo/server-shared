@@ -13,7 +13,7 @@ export namespace ExtensionConfiguration {
     readonly consumingServiceName: string
   }
 
-  export function getExtensionIds(extensionConfiguration: ExtensionConfiguration): readonly Id[] {
+  export function getExtensionIds(extensionConfiguration: ExtensionConfiguration): Id[] {
     return [
       ...extensionConfiguration.extensionIds,
       ...extensionConfiguration.serviceBindings.map(serviceBinding => serviceBinding.providingExtensionId),
