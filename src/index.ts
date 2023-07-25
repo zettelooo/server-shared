@@ -1,5 +1,6 @@
 export * from './version'
 
+export * from './converters'
 export * from './Model'
 export * from './rest-services'
 export * from './web-socket-services'
