@@ -25,15 +25,22 @@ export namespace ExtensionServiceSignature {
   }
 
   export namespace ModifyConfiguration {
-    export interface Request extends Model.ExtensionConfiguration {
+    export interface Request {
       readonly intention: string
+      readonly extensionConfiguration: Model.ExtensionConfiguration
     }
-    export type Response = Model.ExtensionConfiguration
+    export interface Response {
+      readonly extensionConfiguration: Model.ExtensionConfiguration
+    }
   }
 
   export namespace RefineConfiguration {
-    export type Request = Model.ExtensionConfiguration
-    export type Response = Model.ExtensionConfiguration
+    export interface Request {
+      readonly extensionConfiguration: Model.ExtensionConfiguration
+    }
+    export interface Response {
+      readonly extensionConfiguration: Model.ExtensionConfiguration
+    }
   }
 
   export namespace UpdateCardPublicData {
