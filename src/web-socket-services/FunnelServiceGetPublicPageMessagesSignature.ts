@@ -57,6 +57,10 @@ export namespace FunnelServiceGetPublicPageMessagesSignature {
       readonly mutations: readonly Mutation[]
       readonly numberOfRemainingMutations?: number
     }
+    [ResponseMessage.Type.UpdateExtension]: {
+      readonly type: ResponseMessage.Type.UpdateExtension
+      readonly extensionId: Id
+    }
   }[T]
 
   export namespace ResponseMessage {
@@ -65,6 +69,7 @@ export namespace FunnelServiceGetPublicPageMessagesSignature {
       Heartbeat = 'HEARTBEAT',
       Restart = 'RESTART',
       MutationBatch = 'MUTATION_BATCH',
+      UpdateExtension = 'UPDATE_EXTENSION',
     }
   }
 
