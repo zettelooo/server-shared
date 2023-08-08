@@ -65,6 +65,13 @@ export namespace AccountServiceSignature {
     }
   }
 
+  export namespace GetSubscriptionLink {
+    export interface Request {}
+    export interface Response {
+      readonly subscriptionLinkUrl: string
+    }
+  }
+
   export namespace WipeOut {
     export interface Request {}
     export interface Response {}
