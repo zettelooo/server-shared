@@ -42,7 +42,7 @@ export namespace AccountServiceSignature {
       readonly invitationCode: string
     }
     export interface Response {
-      readonly invitationCodeIsValid: boolean
+      readonly status: 'accepted' | 'invalid' | 'already used'
     }
   }
 
