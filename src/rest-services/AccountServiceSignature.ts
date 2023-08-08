@@ -18,7 +18,7 @@ export namespace AccountServiceSignature {
       readonly walletAddress: string
     }
     export interface Response {
-      readonly notInvited: boolean
+      readonly notSubscribed: boolean
       readonly neededFields?: NewUserData.NeededFields
       readonly nonceMessage?: string
     }
