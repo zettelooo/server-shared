@@ -66,9 +66,13 @@ export namespace AccountServiceSignature {
   }
 
   export namespace GetSubscriptionLink {
-    export interface Request {}
+    export interface Request {
+      readonly agentEnvironment: 'browser' | 'electron'
+      readonly accessToken: string
+      readonly refreshToken: string
+    }
     export interface Response {
-      readonly subscriptionLinkUrl: string
+      readonly subscriptionLinkUrl: string | null
     }
   }
 
