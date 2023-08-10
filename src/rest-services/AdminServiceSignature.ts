@@ -36,13 +36,6 @@ export namespace AdminServiceSignature {
     }
   }
 
-  export namespace CreateInvitationCode {
-    export interface Request {}
-    export interface Response {
-      readonly invitationCode: string
-    }
-  }
-
   export namespace GetPeekUserData {
     export interface Request {
       readonly deviceId: Id

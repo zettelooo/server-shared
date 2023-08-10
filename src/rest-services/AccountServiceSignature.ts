@@ -36,16 +36,6 @@ export namespace AccountServiceSignature {
     }
   }
 
-  export namespace SubmitInvitationCode {
-    export type Request = {
-      readonly accessToken: string
-      readonly invitationCode: string
-    }
-    export interface Response {
-      readonly status: 'accepted' | 'invalid' | 'already used'
-    }
-  }
-
   export namespace EditAccount {
     export type Request = {
       readonly accessToken: string
