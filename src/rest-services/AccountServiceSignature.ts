@@ -18,8 +18,6 @@ export namespace AccountServiceSignature {
       readonly walletAddress: string
     }
     export interface Response {
-      readonly notSubscribed: boolean
-      readonly neededFields?: NewUserData.NeededFields
       readonly nonceMessage?: string
     }
   }
@@ -36,13 +34,22 @@ export namespace AccountServiceSignature {
     }
   }
 
+  export namespace GetAccountStatus {
+    export type Request = {
+      readonly accessToken: string
+    }
+    export interface Response {
+      readonly accountStatus: AccountStatus
+    }
+  }
+
   export namespace EditAccount {
     export type Request = {
       readonly accessToken: string
-      readonly neededValues: NewUserData.NeededValues
+      readonly neededValues: AccountStatus.NeededValues
     }
     export interface Response {
-      readonly neededValuesErrors?: NewUserData.NeededValuesErrors
+      readonly neededValuesErrors?: AccountStatus.NeededValuesErrors
     }
   }
 
@@ -71,7 +78,12 @@ export namespace AccountServiceSignature {
     export interface Response {}
   }
 
-  export namespace NewUserData {
+  export interface AccountStatus {
+    readonly neededFields: AccountStatus.NeededFields
+    readonly subscribed: boolean
+  }
+
+  export namespace AccountStatus {
     export type NeededField = 'name' | 'userName' | 'email' | 'walletAddress'
     export type NeededFields = readonly NeededField[]
     export type NeededValues = Partial<Pick<Model.Account, NeededField>>
