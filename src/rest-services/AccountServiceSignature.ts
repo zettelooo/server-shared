@@ -73,6 +73,15 @@ export namespace AccountServiceSignature {
     }
   }
 
+  export namespace GetCustomerPortalLink {
+    export interface Request {
+      readonly agentEnvironment: 'browser' | 'electron'
+    }
+    export interface Response {
+      readonly customerPortalLinkUrl: string | null
+    }
+  }
+
   export namespace WipeOut {
     export interface Request {}
     export interface Response {}
