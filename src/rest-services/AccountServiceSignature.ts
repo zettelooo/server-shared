@@ -75,7 +75,7 @@ export namespace AccountServiceSignature {
 
   export namespace GetCustomerPortalLink {
     export interface Request {
-      readonly agentEnvironment: 'browser' | 'electron'
+      readonly redirectBackUrl: string
     }
     export interface Response {
       readonly customerPortalLinkUrl: string | null
