@@ -89,7 +89,7 @@ export namespace AccountServiceSignature {
 
   export interface AccountStatus {
     readonly neededFields: AccountStatus.NeededFields
-    readonly subscribed: boolean
+    readonly subscription: Model.Account.Subscription
   }
 
   export namespace AccountStatus {

@@ -9,5 +9,5 @@ export interface Account extends Omit<User, 'type'> {
 }
 
 export namespace Account {
-  export type Subscription = 'none' | 'normal'
+  export type Subscription = 'none' | 'normal' | 'canceled'
 }
